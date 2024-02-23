@@ -1,0 +1,32 @@
+name: Debug workflows
+run-name: Debug GitHub self-hosted runner
+on:
+  workflow_dispatch:
+    inputs:
+      run:
+        description: Run the workflow
+        required: true
+        type: boolean
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  run-workflow:
+    name: RUN WORKFLOW
+    runs-on:
+      - self-hosted
+      - ancillaries
+      - actions
+
+    steps:
+      - name: Debug - NodeJS v20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Debug - Packer latest version
+        uses: hashicorp/setup-packer@main
+        with:
+          version: latest
