@@ -21,6 +21,9 @@ jobs:
       - actions
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Debug - NodeJS v20
         uses: actions/setup-node@v4
         with:
@@ -30,3 +33,9 @@ jobs:
         uses: hashicorp/setup-packer@main
         with:
           version: latest
+
+      - name: Debug - Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
