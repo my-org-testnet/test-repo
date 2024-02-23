@@ -7,7 +7,7 @@ on:
         description: Run the workflow
         required: true
         type: boolean
-        default: false
+        default: true
 
 defaults:
   run:
