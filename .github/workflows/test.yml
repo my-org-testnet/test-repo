@@ -1,5 +1,5 @@
-name: Debug workflows
-run-name: Debug GitHub self-hosted runner
+name: Debug workflows in EKS
+run-name: Debug GitHub Actions Runner Controller
 on:
   workflow_dispatch:
     inputs:
@@ -14,27 +14,31 @@ defaults:
     shell: bash
 
 jobs:
-  run-workflow:
-    name: RUN WORKFLOW
-    runs-on:
-      - arc-runner-set
+  run-workflow-1:
+    name: ARC WORKFLOW 1
+    runs-on: arc-runner-set
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Debug - NodeJS v20
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
-      #- name: Debug - Packer latest version
-      #  uses: hashicorp/setup-packer@main
-      #  with:
-      #    version: latest
-
-      - name: Debug - Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           java-version: 21
           distribution: temurin
+
+  run-workflow-2:
+    name: ARC WORKFLOW 2
+    runs-on: arc-runner-set
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+      - name: Setup Golang
+        uses: actions/setup-go@v5
