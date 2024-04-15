@@ -17,9 +17,7 @@ jobs:
   run-workflow:
     name: RUN WORKFLOW
     runs-on:
-      - self-hosted
-      - ancillaries
-      - actions
+      - arc-runner-set
 
     steps:
       - name: Checkout repository
