@@ -28,10 +28,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Debug - Packer latest version
-        uses: hashicorp/setup-packer@main
-        with:
-          version: latest
+      #- name: Debug - Packer latest version
+      #  uses: hashicorp/setup-packer@main
+      #  with:
+      #    version: latest
 
       - name: Debug - Java
         uses: actions/setup-java@v4
