@@ -16,6 +16,7 @@ defaults:
 jobs:
   run-workflow-1:
     strategy:
+      max-parallel: 2
       matrix:
         java-version: [16, 17, 21]
     name: ARC WORKFLOW 1
@@ -36,7 +37,7 @@ jobs:
   run-workflow-2:
     strategy:
       matrix:
-        python-version: [3.9, 3.10, 3.11]
+        python-version: ['3.9', '3.10', '3.11']
     name: ARC WORKFLOW 2
     runs-on: arc-runner-set
 
