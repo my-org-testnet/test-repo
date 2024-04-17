@@ -20,7 +20,7 @@ jobs:
       matrix:
         java-version: [16, 17, 21]
     name: ARC WORKFLOW 1
-    runs-on: arc-runner-set
+    runs-on: runner-set
 
     steps:
       - uses: actions/checkout@v4
