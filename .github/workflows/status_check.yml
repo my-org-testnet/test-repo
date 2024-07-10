@@ -1,0 +1,39 @@
+name: Debug workflows in EKS
+run-name: Debug GitHub Actions Runner Controller
+
+on:
+  push:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  status-1:
+    name: status check workflow 1
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run command error
+        id: cmd
+        run: |
+          type -a test-script
+
+      - name: Debug if previous step fails
+        if: ${{ steps.cmd.conclusion == 'failure' }}
+        run: echo "FAIL"
+
+  status-2:
+    name: status check workflow 2
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Golang
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.20'
+          cache: false
