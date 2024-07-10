@@ -19,7 +19,7 @@ jobs:
       - name: Run command error
         id: cmd
         run: |
-          type -a test-script
+          type -a gh
 
       - name: Debug if previous step fails
         if: ${{ steps.cmd.conclusion == 'failure' }}
@@ -27,6 +27,7 @@ jobs:
 
   status-2:
     name: status check workflow 2
+    needs: status-1
     runs-on: ubuntu-latest
 
     steps:
