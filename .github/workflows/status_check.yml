@@ -1,5 +1,5 @@
-name: Debug workflows in EKS
-run-name: Debug GitHub Actions Runner Controller
+name: Debug workflows
+run-name: Debug status check functions
 
 on:
   push:
@@ -22,8 +22,16 @@ jobs:
           type -a gh
 
       - name: Debug if previous step fails
-        if: ${{ steps.cmd.conclusion == 'failure' }}
+        if: ${{ steps.cmd.conclusion == 'success' }}
         run: echo "FAIL"
+
+      - name: Failing step
+        id: demo
+        run: exit 1
+
+      - name: The demo step has failed
+        if: ${{ failure() && steps.demo.conclusion == 'failure' }}
+        run: echo "Debug demo step"
 
   status-2:
     name: status check workflow 2
