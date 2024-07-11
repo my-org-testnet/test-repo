@@ -34,7 +34,7 @@ jobs:
         run: echo "Debug demo step"
 
       - name: run.sh
-        run: ./run.sh
+        run: ./caller.sh
 
       - name: debug run.sh env
         run: |
