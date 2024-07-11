@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-#set -euo pipefail
-#set -x
+#set -eux
 
 SCRIPT=$(basename -- "$0")
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
@@ -13,4 +12,4 @@ echo "$PWD"
 
 #echo "export SCRIPT=$SCRIPT" >> "$ENV"
 
-echo SCRIPT=${SCRIPT} | tee -a "$GITHUB_ENV"
+echo "SCRIPT=${SCRIPT}" | tee -a "$GITHUB_ENV"
