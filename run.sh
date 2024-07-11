@@ -16,3 +16,4 @@ echo "SCRIPT=${SCRIPT}" | tee -a "$GITHUB_ENV" > /dev/null
 
 echo
 echo "OK"
+exit
