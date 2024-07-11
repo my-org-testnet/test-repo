@@ -12,4 +12,5 @@ echo "$PWD"
 
 #echo "export SCRIPT=$SCRIPT" >> "$ENV"
 
-echo "SCRIPT=${SCRIPT}" | tee -a "$GITHUB_ENV"
+echo "SCRIPT=${SCRIPT}" 2> /dev/null | tee -a "$GITHUB_ENV"
+
