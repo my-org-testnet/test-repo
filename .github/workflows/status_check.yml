@@ -36,6 +36,10 @@ jobs:
       - name: run.sh
         run: ./run.sh
 
+      - name: debug run.sh env
+        run: |
+          echo ${{ env.SCRIPT }}
+
   status-2:
     name: status check workflow 2
     needs: status-1
